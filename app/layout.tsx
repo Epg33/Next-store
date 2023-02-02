@@ -9,7 +9,7 @@ export default function RootLayout({ children }: {children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className="w-full h-screen flex flex-col items-start bg-slate-900">
-        <Nav inView={showNav}/>
+        <Nav inView={showNav} setShowNav={setShowNav}/>
         {children}
       </body>
     </html>
