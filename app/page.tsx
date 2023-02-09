@@ -1,9 +1,10 @@
 import Image from "next/dist/client/image";
-import { fetchByCategory, fetchingHome } from "../services/fetching";
+import { fetchByCategory, fetchCategories, fetchingHome } from "../services/fetching";
 
 export default async function Home() {
   const womansClothes = await fetchByCategory("women's clothing");
-  console.log(womansClothes);
+  const cats = await fetchCategories();
+  console.log(cats);
   return (
     <main className="text-slate-100 pt-16">
       <section className="w-full flex flex-col gap-5 items-center px-4">

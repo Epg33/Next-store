@@ -22,3 +22,9 @@ export const fetchByCategory = async (category: string ):Promise<products[]> => 
   const data: Promise<products[]> = res.json();
   return data
 }
+
+export const fetchCategories = async () => {
+  const res = await fetch("https://fakestoreapi.com/products/products/categories");
+  const data = res.json();
+  return data
+}
