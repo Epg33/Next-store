@@ -18,15 +18,15 @@ export default async function Home() {
     <main className="text-slate-100 pt-16 flex flex-col gap-8">
       <section className="w-full flex flex-col gap-5 items-center">
         <h3 className="text-xl place-self-start pl-8">Latest in women's clothes</h3>
-        <div className="w-full flex flex-col gap-5 items-center px-4 lg:flex-row lg:h-full lg:w-full lg:overflow-x-scroll">
+        <div className="w-full flex flex-col gap-5 items-center px-4 lg:flex-row lg:h-full">
           {
             womansClothes.map((piece, i)=>{
-              return <div key={i} className='w-11/12 h-5/6 flex flex-col gap-1 items-start p-3 bg-slate-800 rounded-xl'>
+              return <div key={i} className='w-11/12 h-5/6 flex flex-col gap-1 items-start p-3 bg-slate-800 rounded-xl lg:w-full '>
                 <Image 
                   src={piece.image} alt={piece.description} width={300} height={450} 
                   className="w-full h-auto lg:h-64"/>
-                <h4 className="text-sm lg:text-ellipsis lg:overflow-hidden lg:whitespace-nowrap">{piece.title}</h4>
-                <p className="text-cyan-500">{piece.price} $</p>
+                <h4 className="text-sm">{piece.title}</h4>
+                <p className="text-cyan-50">{piece.price} $</p>
               </div>
             })
           }
