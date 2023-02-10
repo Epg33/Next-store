@@ -13,24 +13,27 @@ export default async function Home() {
     {name:"men's clothing", image: mens}, 
     {name:"women's clothing" , image: womens}
   ];
+
   return (
     <main className="text-slate-100 pt-16 flex flex-col gap-8">
-      <section className="w-full flex flex-col gap-5 items-center px-4">
-        <h3 className="text-3xl">Latest in women's clothes</h3>
-        {
-          womansClothes.map((piece, i)=>{
-            return <div key={i} className='w-11/12 h-5/6 flex flex-col gap-1 items-start p-3 bg-slate-800 rounded-xl'>
-              <Image 
-                src={piece.image} alt={piece.description} width={300} height={450} 
-                className="w-full h-auto"/>
-              <h4 className="text-sm">{piece.title}</h4>
-              <p className="text-cyan-500">{piece.price} $</p>
-            </div>
-          })
-        }
+      <section className="w-full flex flex-col gap-5 items-center">
+        <h3 className="text-xl place-self-start pl-8">Latest in women's clothes</h3>
+        <div className="w-full flex flex-col gap-5 items-center px-4 lg:flex-row lg:h-full lg:w-full lg:overflow-x-scroll">
+          {
+            womansClothes.map((piece, i)=>{
+              return <div key={i} className='w-11/12 h-5/6 flex flex-col gap-1 items-start p-3 bg-slate-800 rounded-xl'>
+                <Image 
+                  src={piece.image} alt={piece.description} width={300} height={450} 
+                  className="w-full h-auto lg:h-64"/>
+                <h4 className="text-sm lg:text-ellipsis lg:overflow-hidden lg:whitespace-nowrap">{piece.title}</h4>
+                <p className="text-cyan-500">{piece.price} $</p>
+              </div>
+            })
+          }
+        </div>
       </section>
       <section className="flex flex-col gap-6">
-        <h3 className="pl-6 text-2xl">
+        <h3 className="pl-6 text-xl">
           Categories
         </h3>
         <div className="w-full flex flex-col gap-4 px-6">
