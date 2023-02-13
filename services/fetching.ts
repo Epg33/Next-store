@@ -11,7 +11,7 @@ export interface products {
   }
 }
 
-export const fetchingHome = async ():Promise<products[]> => {
+export const fetchingAllProducts = async ():Promise<products[]> => {
   const res = await fetch("https://fakestoreapi.com/products");
   const data: Promise<products[]> = res.json();
   return data
