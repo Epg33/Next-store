@@ -22,3 +22,9 @@ export const fetchByCategory = async (category: string ):Promise<products[]> => 
   const data: Promise<products[]> = res.json();
   return data
 }
+
+export const fc = async () => {
+  const res = await fetch('https://api.escuelajs.co/api/v1/categories');
+  const data = res.json();
+  return data
+}

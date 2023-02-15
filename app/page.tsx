@@ -1,19 +1,9 @@
 import Image from "next/dist/client/image";
-import { fetchByCategory } from "../services/fetching";
-import mens from '../public/images/mens.avif'
-import womens from '../public/images/womens.avif'
-import jewelry from '../public/images/jewelry.jpeg'
-import electronics from '../public/images/Electronics.jpg'
+import { fetchByCategory, fc } from "../services/fetching";
 
 export default async function Home() {
   const womansClothes = await fetchByCategory("women's clothing");
-  const categories = [ 
-    {name:'electronics', image: electronics}, 
-    {name:'jewelery', image: jewelry}, 
-    {name:"men's clothing", image: mens}, 
-    {name:"women's clothing" , image: womens}
-  ];
-
+  const categories = fc();
   return (
     <main className="text-slate-100 pt-16 flex flex-col gap-8 lg:w-full lg:overflow-x-hidden">
       <section className="w-full flex flex-col gap-5 items-center">
@@ -23,7 +13,7 @@ export default async function Home() {
             womansClothes.map((piece, i)=>{ 
               return <div key={i} className='w-11/12 h-5/6 flex flex-col gap-1 items-start p-3 bg-slate-800 rounded-xl lg:w-[15.2%] lg:h-full'>
                 <Image 
-                  src={piece.image} alt={piece.description} width={300} height={450} 
+                  src={piece.images[0]} alt={piece.description} width={300} height={450} 
                   className="w-full h-auto lg:h-[256px]"/> 
                 <h4 className="text-sm lg:w-3/4 lg:text-ellipsis lg:overflow-hidden lg:whitespace-nowrap">{piece.title}</h4>
                 <p className="text-cyan-500">{piece.price} $</p>
