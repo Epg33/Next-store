@@ -2,12 +2,12 @@ import Image from "next/dist/client/image";
 import { fetchByCategory, fc } from "../services/fetching";
 
 export default async function Home() {
-  const womansClothes = await fetchByCategory("women's clothing");
-  const categories = fc();
+  const womansClothes = await fetchByCategory(1);
+  const categories = await fc();
   return (
     <main className="text-slate-100 pt-16 flex flex-col gap-8 lg:w-full lg:overflow-x-hidden">
       <section className="w-full flex flex-col gap-5 items-center">
-        <h3 className="text-xl place-self-start pl-8">Latest in women's clothes</h3>
+        <h3 className="text-xl place-self-start pl-8">Latest in clothes</h3>
         <div className="w-full flex flex-col gap-5 items-center px-4 lg:flex-row lg:h-full lg:w-screen lg:items-center">
           { 
             womansClothes.map((piece, i)=>{ 
@@ -30,7 +30,10 @@ export default async function Home() {
           {
             categories.map((cat, i)=> {
               return <div key={i} >
-                <Image src={cat.image} alt={`image for the ${cat.name} category`} className="rounded-xl w-full"/>
+                <Image
+                 src={cat.image} alt={`image for the ${cat.name} category`} width={640} height={480}
+                 className="rounded-xl w-full"
+                />
                 <h4 className="relative bottom-8 z-10 h-11/12 w-full pl-4 pb-2 bg-gradient-to-b from-transparent to-slate-800 font-semibold rounded-b-xl">{cat.name.toUpperCase()}</h4>
               </div>
             })
@@ -40,3 +43,4 @@ export default async function Home() {
     </main>
   );
 }
+ 

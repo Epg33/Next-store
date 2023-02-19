@@ -11,19 +11,25 @@ export interface products {
     images: string[]
 }
 
+export interface category {
+  id: number,
+  name: string,
+  image: string
+}
+
 export const fetchingAllProducts = async ():Promise<products[]> => {
   const res = await fetch("https://api.escuelajs.co/api/v1/products?offset=0&limit=20");
   const data: Promise<products[]> = res.json();
   return data
 }
 
-export const fetchByCategory = async (category: string ):Promise<products[]> => {
-  const res = await fetch(`https://fakestoreapi.com/products/category/${category}`);
+export const fetchByCategory = async (category: number ):Promise<products[]> => {
+  const res = await fetch(`https://api.escuelajs.co/api/v1/categories/${category}/products?offset=0&limit=6`);
   const data: Promise<products[]> = res.json();
   return data
 }
 
-export const fc = async () => {
+export const fc = async ():Promise<category[]> => {
   const res = await fetch('https://api.escuelajs.co/api/v1/categories');
   const data = res.json();
   return data
