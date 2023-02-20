@@ -11,17 +11,22 @@ export interface products {
     images: string[]
 }
 
+export interface product extends products{
+  creationAt: string,
+  updatedAt: string,
+}
+
 export interface category {
   id: number,
   name: string,
   image: string
 }
 
-export const fetchingAllProductsAndFindOne = async (id:number): Promise<products> | undefined => {
+export const fetchingAllProductsAndFindOne = async (id:number): Promise<product> => {
   const res = await fetch("https://api.escuelajs.co/api/v1/products?offset=0&limit=200");
-  const data: Promise<products[]> = res.json();
-  const product =(await data).find((p)=> p.id == id)
-  return product
+  const data = res.json();
+  const product:product =(await data).find((p:product)=> p.id == id)
+  return product ? product : (await data)[0]
 }
 
 export const fetchingSomeProducts = async ():Promise<products[]> => {

@@ -12,6 +12,12 @@ const nextConfig = {
     },
     {
       protocol: 'https',
+      hostname: 'm.media-amazon.com',
+      port: '',
+      pathname: '/image/**'
+    },
+    {
+      protocol: 'https',
       hostname: 'api.lorem.space',
       port: '',
       pathname: '/image/**'
