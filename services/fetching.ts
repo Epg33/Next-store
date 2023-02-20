@@ -17,10 +17,23 @@ export interface category {
   image: string
 }
 
-export const fetchingAllProducts = async ():Promise<products[]> => {
+export const fetchingAllProductsAndFindOne = async (id:number): Promise<products> | undefined => {
+  const res = await fetch("https://api.escuelajs.co/api/v1/products?offset=0&limit=200");
+  const data: Promise<products[]> = res.json();
+  const product =(await data).find((p)=> p.id == id)
+  return product
+}
+
+export const fetchingSomeProducts = async ():Promise<products[]> => {
   const res = await fetch("https://api.escuelajs.co/api/v1/products?offset=0&limit=20");
   const data: Promise<products[]> = res.json();
   return data
+}
+
+export const fetchinSingleProduct = async (id:number):Promise<products> => {
+  const res = await fetch(`https://api.escuelajs.co/api/v1/products/5`);
+  const data: Promise<products> = res.json()
+  return data;
 }
 
 export const fetchByCategory = async (category: number ):Promise<products[]> => {

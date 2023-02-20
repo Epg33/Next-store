@@ -1,12 +1,11 @@
-import { fetchingAllProducts } from "@/services"
+import { fetchingSomeProducts } from "@/services"
 import { RxReset } from 'react-icons/rx'
 import Image from "next/dist/client/image";
 import Link from "next/dist/client/link";
 import FavButton from "./FavButton";
 
 const page = async ():Promise<JSX.Element> => {
-  const data = await fetchingAllProducts();
-  // console.log(data) 
+  const data = await fetchingSomeProducts();
   
   return ( 
     <>
@@ -36,14 +35,14 @@ const page = async ():Promise<JSX.Element> => {
           {
             data.map((product, i)=> {
               return <div key={i} className='w-10/12 flex flex-col items-center gap-4 text-slate-100'>
-                <Link href='/' className="w-full flex flex-col items-center gap-4">
+                <Link href={`/products/${product.id}`} className="w-full flex flex-col items-center gap-4">
                   <Image 
                     src={product.images[0]} alt={`image of ${product.title}`} width={300} height={450}
                     className='w-full h-auto'/>
                   <h4 className="place-self-start">{product.title}</h4>
                 </Link>
                 <div className='w-full flex justify-between'>
-                  <Link href='/' className="place-self-start"><span className='text-gray-500'>{product.category.name}</span> - {product.price} $</Link>
+                  <Link href={`/products/${product.id}`} className="place-self-start"><span className='text-gray-500'>{product.category.name}</span> - {product.price} $</Link>
                   <FavButton />
                 </div>
               </div>
