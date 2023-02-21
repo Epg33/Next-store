@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer custom {
+  .box-reflect {
+    -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(214, 209, 209, 0.199));
+    animation: glow 5s linear infinite
+  }
+}
+
+
+@keyframes glow {
+  0%, 18%, 20%, 50.1%{
+    color: #012;
+    text-shadow: none;
+  }
+  18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 100%{
+    color: #eee;
+    text-shadow: 0 0 10px #36e,
+    0 0 20px #36e,
+    0 0 40px #36e,
+    0 0 80px #36e,
+    0 0 160px #36e;
+  }
+}
