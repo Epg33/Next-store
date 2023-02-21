@@ -18,6 +18,12 @@ const nextConfig = {
     },
     {
       protocol: 'https',
+      hostname: 'firebasestorage.googleapis.com',
+      port: '',
+      pathname: '/v0/b/platzi-store-forms.appspot.com/**'
+    },
+    {
+      protocol: 'https',
       hostname: 'api.lorem.space',
       port: '',
       pathname: '/image/**'

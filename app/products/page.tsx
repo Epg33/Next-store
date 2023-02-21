@@ -14,7 +14,7 @@ const page = async ():Promise<JSX.Element> => {
       <div className='w-full flex flex-col gap-12 sm:w-11/12 md:flex-row lg:w-full'>
         <section className="w-full flex flex-col items-start px-8 gap-6 text-slate-100 text-lg font-medium md:w-1/4 md:fixed lg:w-1/5">
           <h2 className="text-2xl">Filters</h2>
-          <button className="w-full flex justify-between items-center px-2 text-xl text-slate-900 bg-slate-50 rounded-xl">Reset <RxReset /></button>
+          <button className="w-full flex justify-between items-center px-2 text-xl text-slate-900 bg-slate-50 rounded-xl cursor-pointer">Reset <RxReset /></button>
           <label htmlFor="price" className='w-full flex justify-between gap-4 md:flex-col' >Price:
             <input type="number" placeholder="Maximun price" className='w-5/6 pl-2 outline-none rounded-lg placeholder:text-slate-300 text-slate-900 md:w-full md:text-sm md:h-7' name="price"/>
           </label>
@@ -30,6 +30,7 @@ const page = async ():Promise<JSX.Element> => {
               <option value="Others">Others</option>
             </select>
           </label>
+          <button className="w-1/2 px-2 text-xl text-slate-900 bg-slate-50 rounded-xl place-self-center cursor-pointer">Apply</button>
         </section>
         <section className='w-full flex flex-col gap-4 items-center md:w-3/4 md:grid md:grid-cols-2 md:ml-[28%] lg:grid-cols-3 lg:ml-[22%]'>
           {

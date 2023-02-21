@@ -1,5 +1,5 @@
 import { fetchingAllProductsAndFindOne } from "@/services"
-import dayjs from "dayjs"
+import {notFound} from 'next/navigation'
 import Image from "next/image"
 
 export interface productIdParams {
@@ -11,25 +11,26 @@ export interface productIdParams {
 const page = async ({params}: productIdParams):Promise<JSX.Element> => {
   const product = await fetchingAllProductsAndFindOne(params.productId)
   console.log(product);
-  console.log(dayjs(product.creationAt, 'YYYY MMMM DD'));
   
-  
+  if(product.message ==='not found') {
+    notFound()
+  }
   return (
     <main>
-      <h1>{product.title}</h1>
+      <h1>{product.product.title}</h1>
       <section>
         {
-          product.images.map((img, i)=> {
+          product.product.images.map((img, i)=> {
             return <div key={i}>
-              <Image src={img} alt={`image of ${product.title}`} width={640} height={480}/>
+              <Image src={img} alt={`image of ${product.product.title}`} width={640} height={480}/>
             </div>
           })
         }
       </section>
       <section>
-        <div><h2>{product.price}$</h2> <span>{product.category.name}</span></div>
-        <p>{product.description}</p>
-        <span>Published at: {product.creationAt}</span>
+        <div><h2>{product.product.price}$</h2> <span>{product.product.category.name}</span></div>
+        <p>{product.product.description}</p>
+        <span>Published at: {product.product.creationAt}</span>
       </section>
     </main>
   )

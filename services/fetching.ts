@@ -22,11 +22,18 @@ export interface category {
   image: string
 }
 
-export const fetchingAllProductsAndFindOne = async (id:number): Promise<product> => {
+export interface notFound {
+  message: 'not found' | 'found'
+}
+
+export const fetchingAllProductsAndFindOne = async (id:number) => {
   const res = await fetch("https://api.escuelajs.co/api/v1/products?offset=0&limit=200");
-  const data = res.json();
-  const product:product =(await data).find((p:product)=> p.id == id)
-  return product ? product : (await data)[0]
+  const data: Promise<product[]> = res.json();
+  const product:product | undefined =(await data).find((p:product)=> p.id == id)
+  if (product==undefined) {
+    return {product: (await data)[0], message: 'not found'}
+  }
+  return {product: product, message: 'found'}
 }
 
 export const fetchingSomeProducts = async ():Promise<products[]> => {
