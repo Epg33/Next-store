@@ -1,6 +1,7 @@
 import { fetchingAllProductsAndFindOne } from "@/services"
 import {notFound} from 'next/navigation'
 import Image from "next/image"
+import { Slider } from "@/components"
 
 export interface productIdParams {
   params: {
@@ -16,8 +17,9 @@ const page = async ({params}: productIdParams):Promise<JSX.Element> => {
     notFound()
   }
   return (
-    <main>
+    <main className='mt-16'>
       <h1>{product.product.title}</h1>
+      <Slider images={product.product.images}/>
       <section>
         {
           product.product.images.map((img, i)=> {

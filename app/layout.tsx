@@ -11,7 +11,7 @@ export default function RootLayout({ children }: {children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className="w-full h-screen flex flex-col items-start bg-slate-900">
-        <header className="fixed w-full flex justify-between items-center text-slate-100 py-4 px-4 bg-slate-900 shadow-lg">
+        <header className="fixed w-full flex justify-between items-center text-slate-100 py-4 px-4 bg-slate-900 shadow-lg z-50">
           <Link href='/' className='cursor-pointer'><h1 className="text-2xl">Next Store</h1></Link>
           <button onClick={()=>setShowNav(true)}><HiMenu /></button>
         </header>
