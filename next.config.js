@@ -12,6 +12,18 @@ const nextConfig = {
     },
     {
       protocol: 'https',
+      hostname: 'www.google.com',
+      port: '',
+      pathname: '/**'
+    },
+    {
+      protocol: 'https',
+      hostname: 's.yimg.com',
+      port: '',
+      pathname: '/**'
+    },
+    {
+      protocol: 'https',
       hostname: 'bing.com',
       port: '',
       pathname: '/images/**'
