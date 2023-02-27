@@ -12,6 +12,24 @@ const nextConfig = {
     },
     {
       protocol: 'https',
+      hostname: 'bing.com',
+      port: '',
+      pathname: '/images/**'
+    },
+    {
+      protocol: 'https',
+      hostname: 'renzocosta.vteximg.com.br',
+      port: '',
+      pathname: '/arquivos/**'
+    },
+    {
+      protocol: 'https',
+      hostname: 'elcomercio.pe',
+      port: '',
+      pathname: '/resizer/**'
+    },
+    {
+      protocol: 'https',
       hostname: 'm.media-amazon.com',
       port: '',
       pathname: '/image/**'
