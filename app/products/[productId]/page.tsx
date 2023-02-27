@@ -1,6 +1,7 @@
 import { fetchingAllProductsAndFindOne } from "@/services"
 import {notFound} from 'next/navigation'
 import { Slider } from "@/components"
+import ButtonCart from "./ButtonCart"
 
 export interface productIdParams {
   params: {
@@ -16,15 +17,21 @@ const page = async ({params}: productIdParams):Promise<JSX.Element> => {
     notFound()
   }
   return (
-    <main className='mt-16'>
-      <h1>{product.product.title}</h1>
+    <main className='mt-20 border-[1px] border-gray-600 border-solid rounded-lg p-2 text-slate-100'>
+      <section className='flex flex-col gap-2'>
+        <p>{product.product.description}</p>
+        <h1 className="text-center text-3xl font-bold">{product.product.title}</h1>
+      </section>
       <section>
         <Slider images={product.product.images}/>
       </section>
-      <section>
-        <div><h2>{product.product.price}$</h2> <span>{product.product.category.name}</span></div>
-        <p>{product.product.description}</p>
-        <span>Published at: {product.product.creationAt}</span>
+      <section className="flex flex-col gap-2">
+        <div className="flex">
+          <p className='text-cyan-600'>{product.product.price}$</p>
+          <span className='text-gray-600'> - {product.product.category.name}</span>
+        </div>
+        <span className='text-gray-200'>Published at: {product.product.creationAt.substring(0, 10)}</span>
+        <ButtonCart id={product.product.id} />        
       </section>
     </main>
   )

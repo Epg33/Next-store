@@ -14,12 +14,10 @@ const Slider = ({images}:{images:string[]}) => {
 
   const sumIndex = () => {
     const newIndex = index === images.length - 1 ? 0 : index + 1
-    console.log(newIndex);
-    
     setIndex(newIndex)
   }
   return (
-    <div className='max-w-[1400px] h-[480px] w-full m-auto py-16 relative group'>
+    <div className='max-w-[1400px] h-[400px] w-full m-auto py-6 relative group'>
       <Image src={images[index]} height={480} width={640} alt='Picture of a product' className='w-full h-full rounded-lg'/>
       <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
         <BsChevronCompactLeft onClick={restIndex} size={30}/>
