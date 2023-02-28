@@ -4,7 +4,10 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    remotePatterns: [{
+    domains: ['*'],
+    remotePatterns: [
+    { hostname: 'cdn.pixabay.com' },
+    {
       protocol: 'https',
       hostname: 'fakestoreapi.com',
       port: '',

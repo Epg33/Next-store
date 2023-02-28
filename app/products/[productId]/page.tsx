@@ -17,7 +17,7 @@ const page = async ({params}: productIdParams):Promise<JSX.Element> => {
     notFound()
   }
   return (
-    <main className='mt-20 border-[1px] border-gray-600 border-solid rounded-lg p-2 text-slate-100'>
+    <main className='mt-20 mb-6 border-[1px] border-gray-600 border-solid rounded-lg p-4 text-slate-100 select-none'>
       <section className='flex flex-col gap-2'>
         <p>{product.product.description}</p>
         <h1 className="text-center text-3xl font-bold">{product.product.title}</h1>
