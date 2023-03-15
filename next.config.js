@@ -7,6 +7,7 @@ const nextConfig = {
     domains: ['*'],
     remotePatterns: [
     { hostname: 'cdn.pixabay.com' },
+    { hostname: 'images.pexels.com' },
     {
       protocol: 'https',
       hostname: 'fakestoreapi.com',
