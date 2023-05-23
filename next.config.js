@@ -6,6 +6,8 @@ const nextConfig = {
   images: {
     domains: ['*'],
     remotePatterns: [
+    { hostname: 'cloudfront-us-east-1.images.arcpublishing.com'},
+    { hostname: 'picsum.photos'},
     { hostname: 'cdn.pixabay.com' },
     { hostname: 'images.pexels.com' },
     {
